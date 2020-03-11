@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 require 'nokogiri'
 require 'open-uri'
 require 'colorize'
@@ -20,6 +21,7 @@ def retrieve_entries(url)
 end
 
 if ARGV.length >= 1
+  print "\nRetrieving feed data...\n"
   cve_entries = retrieve_entries(NVD_FEED_URL) if ArgumentValidation.valid_arguments_format?(ARGV)
 
   case ARGV[0].upcase
@@ -29,12 +31,13 @@ if ARGV.length >= 1
     ARGV.drop(1).each do |id|
       details = ArgumentValidation.find_cve_match(id, cve_entries)
       if details
-        puts "retrieving data for #{id}..."
+        print "\nretrieving data for #{id}...\n\n"
         details.scrape_additional_data
         Reporting.show_detailed_entry(details)
       else
         puts "no match for #{id} found\n"
       end
+      print "\n------------------------------------\n"
     end
   else
     Reporting.print_usage

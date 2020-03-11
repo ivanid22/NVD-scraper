@@ -26,7 +26,7 @@ module Reporting
 
   def self.show_detailed_entry(entry)
     show_entry(entry)
-    puts "\nThreat scores:".light_yellow
+    puts "Threat scores:".light_yellow
     print 'CVSS2 score: '.light_blue
     print entry.score_cvss2
     print "\nCVSS3 score: ".light_blue
@@ -38,6 +38,7 @@ module Reporting
   end
 
   def self.print_usage
-    puts 'usage: ./nvd-scrape (list|details) [cve-id..]'
+    puts 'usage: ./bin/nvd-scrape (list|details) [cve-id..]'
+    puts '       ruby bin/nvd-scrape.rb (list|details) [cve-id..]'
   end
 end
