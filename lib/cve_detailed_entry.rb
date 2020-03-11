@@ -17,7 +17,7 @@ class CVEDetailedEntry < CVEEntry
   end
 
   def scrape_additional_data
-    req = Nokogiri::HTML(URI.open('https://nvd.nist.gov/vuln/detail/CVE-2020-9458'))
+    req = Nokogiri::HTML(URI.open(@link))
     req.remove_namespaces!
     @score_cvss3 = req.search(CVSS3_SCORE_ATTRIBUTE).children[0].content || nil
     @score_cvss2 = req.css(CVSS2_SCORE_ELEMENT_ID).children[0].content || nil
