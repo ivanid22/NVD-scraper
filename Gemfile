@@ -4,3 +4,4 @@ source "https://rubygems.org"
 
 gem 'zlib'
 gem 'nokogiri'
+gem 'colorize'
