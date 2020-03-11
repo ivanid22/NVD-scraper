@@ -5,7 +5,6 @@ module ArgumentValidation
   end
 
   def self.valid_arguments_format?(args)
-    p args
     return false if args.length < 1
     if args.length == 1
       return true if args[0].upcase == 'LIST'

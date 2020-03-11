@@ -19,13 +19,29 @@ def retrieve_entries(url)
   entries
 end
 
+if ARGV.length >= 1
+  cve_entries = retrieve_entries(NVD_FEED_URL) if ArgumentValidation.valid_arguments_format?(ARGV)
 
-
-Reporting.show_all_entries(entries)
-
-Reporting.print_usage if ARGV.length <= 1 || ARGV[0].upcase !== "LIST"
-cve_entries = retrieve_entries(NVD_FEED_URL) if ArgumentValidation.valid_arguments.format?
-
-case ARGV[0].upcase
-  when 'LIST'    
+  case ARGV[0].upcase
+  when 'LIST'
+    Reporting.show_all_entries(cve_entries)
+  when 'DETAILS'
+    ARGV.drop(1).each do |id|
+      details = ArgumentValidation.find_cve_match(id, cve_entries)
+      if details
+        puts "retrieving data for #{id}..."
+        details.scrape_additional_data
+        Reporting.show_detailed_entry(details)
+      else
+        puts "no match for #{id} found\n"
+      end
+    end
+  else
+    Reporting.print_usage
+  end
+else
+  Reporting.print_usage
 end
+
+
+

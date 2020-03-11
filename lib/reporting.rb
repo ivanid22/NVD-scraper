@@ -37,7 +37,7 @@ module Reporting
     end
   end
 
-  def print_usage
+  def self.print_usage
     puts 'usage: ./nvd-scrape (list|details) [cve-id..]'
   end
 end
