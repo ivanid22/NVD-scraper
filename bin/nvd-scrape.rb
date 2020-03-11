@@ -15,3 +15,7 @@ doc.search('item').each do |item|
 end
 
 Reporting.show_all_entries(entries)
+
+det = CVEDetailedEntry.new(entries.last.title, entries.last.link, entries.last.description, entries.last.discovery_date)
+det.scrape_additional_data
+Reporting.show_detailed_entry(det)

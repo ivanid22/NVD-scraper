@@ -4,6 +4,7 @@ require './lib/cve_entry'
 require './lib/cve_reference_entry'
 
 class CVEDetailedEntry < CVEEntry
+  attr_reader :score_cvss2, :score_cvss3, :vulnerability_references
   # rubocop:disable Layout/LineLength
   CVSS2_SCORE_ELEMENT_ID = '#p_lt_WebPartZone1_zoneCenter_pageplaceholder_p_lt_WebPartZone1_zoneCenter_VulnerabilityDetail_VulnFormView_Cvss2CalculatorAnchor'.freeze
   CVSS3_SCORE_ATTRIBUTE = "//a[@data-testid='vuln-cvss3-panel-score']".freeze
