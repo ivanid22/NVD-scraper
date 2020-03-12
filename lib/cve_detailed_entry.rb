@@ -20,7 +20,7 @@ class CVEDetailedEntry < CVEEntry
     begin
       req = Nokogiri::HTML(URI.open(@link))
     rescue StandardError => e
-      puts "\nError retrieving CVSS data: #{@link}: #{e}"
+      puts "\nCould not retrieve CVSS data: #{@link}: #{e}"
       exit
     end
     req.remove_namespaces!

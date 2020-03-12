@@ -23,7 +23,7 @@ class CVEEntry
                                   item.children[7].child.content))
       end
     rescue StandardError => e
-      puts "\nError retrieving CVSS data: #{url}: #{e}"
+      puts "\nCould not retrieve CVSS data: #{url}: #{e}"
       exit
     end
     entries
