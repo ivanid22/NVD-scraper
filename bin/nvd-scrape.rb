@@ -10,12 +10,15 @@ require './lib/argument_validation'
 NVD_FEED_URL = 'https://nvd.nist.gov/feeds/xml/cve/misc/nvd-rss.xml'.freeze
 cve_entries = []
 
-def retrieve_entries(url)
+def retrieve_entries
   entries = []
   doc = Nokogiri::XML(URI.open(NVD_FEED_URL))
   doc.remove_namespaces!
   doc.search('item').each do |item|
-    entries.push(CVEEntry.new(item.children[1].child.content, item.children[3].child.content, item.children[5].child.content, item.children[7].child.content) )
+    entries.push(CVEEntry.new(item.children[1].child.content,
+                              item.children[3].child.content,
+                              item.children[5].child.content,
+                              item.children[7].child.content))
   end
   entries
 end
@@ -45,6 +48,3 @@ if ARGV.length >= 1
 else
   Reporting.print_usage
 end
-
-
-

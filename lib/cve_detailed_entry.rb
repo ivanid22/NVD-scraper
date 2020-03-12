@@ -23,12 +23,11 @@ class CVEDetailedEntry < CVEEntry
     @score_cvss2 = req.css(CVSS2_SCORE_ELEMENT_ID).children[0].content || nil
     vuln_data = req.search(VULN_LINKS_TABLE_ATTRIBUTE)
     vuln_data.each do |vuln_row|
-        entry = CVEReferenceEntry.new(vuln_row.children[1].child.child.to_s)
-        vuln_row.children[3].children.each do |tag|
-          entry.add_tag(tag.child.to_s) if tag.child.to_s.length.positive?
-        end
-        @vulnerability_references.push(entry)
+      entry = CVEReferenceEntry.new(vuln_row.children[1].child.child.to_s)
+      vuln_row.children[3].children.each do |tag|
+        entry.add_tag(tag.child.to_s) if tag.child.to_s.length.positive?
+      end
+      @vulnerability_references.push(entry)
     end
   end
-
 end

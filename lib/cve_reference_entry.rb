@@ -1,4 +1,3 @@
-
 class CVEReferenceEntry
   attr_reader :tags, :link
 
@@ -9,5 +8,5 @@ class CVEReferenceEntry
 
   def add_tag(tag)
     @tags.push(tag)
-  end  
+  end
 end

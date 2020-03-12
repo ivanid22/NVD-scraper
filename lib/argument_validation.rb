@@ -1,17 +1,17 @@
-
 module ArgumentValidation
   def self.valid_cve_string?(str)
-    /CVE-(\d+)-(\d+)/ === str
+    /CVE-(\d+)-(\d+)/ =~ str
   end
 
   def self.valid_arguments_format?(args)
-    return false if args.length < 1
+    return false if args.empty?
+
     if args.length == 1
       return true if args[0].upcase == 'LIST'
-      false
+
     elsif args.length >= 2
       return true if args[0].upcase == 'DETAILS'
-      false
+
     else
       false
     end
@@ -24,5 +24,4 @@ module ArgumentValidation
     end
     match
   end
-
 end

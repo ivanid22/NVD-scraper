@@ -5,7 +5,7 @@ require './lib/cve_reference_entry'
 
 module Reporting
   def self.show_all_entries(entries)
-    puts 
+    puts
     entries.each { |entry| show_entry(entry) }
   end
 
@@ -26,15 +26,15 @@ module Reporting
 
   def self.show_detailed_entry(entry)
     show_entry(entry)
-    puts "Threat scores:".light_yellow
+    puts 'Threat scores:'.light_yellow
     print 'CVSS2 score: '.light_blue
     print entry.score_cvss2
     print "\nCVSS3 score: ".light_blue
     print entry.score_cvss3
-    if entry.vulnerability_references.length.positive?
-      puts "\n\nAdditional references: ".light_yellow
-      entry.vulnerability_references.each { |vr| show_vulnerability_reference(vr) }
-    end
+    return unless entry.vulnerability_references.length.positive?
+
+    puts "\n\nAdditional references: ".light_yellow
+    entry.vulnerability_references.each { |vr| show_vulnerability_reference(vr) }
   end
 
   def self.print_usage
