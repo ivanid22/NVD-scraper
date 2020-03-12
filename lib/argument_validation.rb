@@ -12,9 +12,8 @@ module ArgumentValidation
     elsif args.length >= 2
       return true if args[0].upcase == 'DETAILS'
 
-    else
-      false
     end
+    false
   end
 
   def self.find_cve_match(cve_id, entries)
