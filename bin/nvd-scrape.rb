@@ -25,7 +25,7 @@ end
 
 if ARGV.length >= 1
   print "\nRetrieving feed data...\n"
-  cve_entries = retrieve_entries(NVD_FEED_URL) if ArgumentValidation.valid_arguments_format?(ARGV)
+  cve_entries = retrieve_entries if ArgumentValidation.valid_arguments_format?(ARGV)
 
   case ARGV[0].upcase
   when 'LIST'

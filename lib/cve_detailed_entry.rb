@@ -17,7 +17,12 @@ class CVEDetailedEntry < CVEEntry
   end
 
   def scrape_additional_data
-    req = Nokogiri::HTML(URI.open(@link))
+    begin
+      req = Nokogiri::HTML(URI.open(@link))
+    rescue StandardError => e
+      puts "\nError retrieving CVSS data: #{@link}: #{e}"
+      exit
+    end
     req.remove_namespaces!
     @score_cvss3 = req.search(CVSS3_SCORE_ATTRIBUTE).children[0].content || nil
     @score_cvss2 = req.css(CVSS2_SCORE_ELEMENT_ID).children[0].content || nil
