@@ -57,10 +57,6 @@ CVE IDs should be provided in its standard format: the letters CVE, followed by 
 
 In order for the scraper to be able to retrieve additional data, the CVE entry has to be present on the RSS database, otherwise it won't be able to produce any output.
 
-# Live version
-
-[Link to the live version](https://tic-tac-toe-1.ivandiaz5.repl.run/)
-
 # Requirements
 
 - Ruby > 2.5
