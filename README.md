@@ -30,7 +30,7 @@ And now youre ready to run the scraper. You can either run it by passing the mai
 
 Or you can run it as a standalone script by making the script executable, and then running it directly:
 
-- `chmod + x bin/nvd-scrape.rb` (Make the script executable, you only need to do this once)
+- `chmod +x bin/nvd-scrape.rb` (Makes the script executable, you only need to do this once)
 - `./bin/nvd-scrape.rb <arguments>`
 
 Proper format for the arguments is detailed below:
@@ -75,7 +75,7 @@ Currently, one of the dependencies for the program does not work with ruby > 2.7
 
 - Github: [@ivanid22](https://github.com/ivanid22)
 - Twitter: [@ivanid22](https://twitter.com/ivanid22)
-- Linkedin: [ivanid22](https://www.linkedin.com/in/ivan-diaz-3a38b3150/)
+- Linkedin: [Ivan Diaz](https://www.linkedin.com/in/ivan-diaz-3a38b3150/)
 
 ## 🤝 Contributing
 
