@@ -2,10 +2,10 @@
 require 'nokogiri'
 require 'open-uri'
 require 'colorize'
-require './lib/cve_entry'
-require './lib/cve_detailed_entry'
-require './lib/reporting'
-require './lib/argument_validation'
+require_relative '../lib/cve_entry'
+require_relative '../lib/cve_detailed_entry'
+require_relative '../lib/reporting'
+require_relative '../lib/argument_validation'
 
 NVD_FEED_URL = 'https://nvd.nist.gov/feeds/xml/cve/misc/nvd-rss.xml'.freeze
 cve_entries = []

@@ -1,7 +1,7 @@
 require 'colorize'
-require './lib/cve_entry'
-require './lib/cve_detailed_entry'
-require './lib/cve_reference_entry'
+require_relative 'cve_entry'
+require_relative 'cve_detailed_entry'
+require_relative 'cve_reference_entry'
 
 module Reporting
   def self.show_all_entries(entries)

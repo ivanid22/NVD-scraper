@@ -1,7 +1,7 @@
 require 'nokogiri'
 require 'open-uri'
-require './lib/cve_entry'
-require './lib/cve_reference_entry'
+require_relative 'cve_entry'
+require_relative 'cve_reference_entry'
 
 class CVEDetailedEntry < CVEEntry
   attr_reader :score_cvss2, :score_cvss3, :vulnerability_references

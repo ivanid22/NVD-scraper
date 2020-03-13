@@ -1,4 +1,4 @@
-require './lib/cve_detailed_entry'
+require_relative '../lib/cve_detailed_entry'
 
 RSpec.describe CVEDetailedEntry do
   let(:valid_link_cve_entry) do

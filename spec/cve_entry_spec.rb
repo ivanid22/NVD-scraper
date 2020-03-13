@@ -1,4 +1,4 @@
-require './lib/cve_entry'
+require_relative '../lib/cve_entry'
 
 RSpec.describe CVEEntry do
   describe '#retrieve_entries' do
