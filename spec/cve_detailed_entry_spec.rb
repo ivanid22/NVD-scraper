@@ -31,11 +31,10 @@ RSpec.describe CVEDetailedEntry do
 
     it 'should fail to fetch details on an invalid CVE entry and instance values should remain empty' do
       invalid_link_cve_entry.scrape_additional_data
-      p invalid_link_cve_entry
       expect(
         invalid_link_cve_entry.score_cvss3.nil? &&
         invalid_link_cve_entry.score_cvss2.nil? &&
-        invalid_link_cve_entry.vulnerability_references.nil?
+        invalid_link_cve_entry.vulnerability_references.empty?
       ).to eql(true)
     end
   end

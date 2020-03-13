@@ -24,7 +24,7 @@ class CVEEntry
       end
     rescue StandardError => e
       puts "\nCould not retrieve CVSS data: #{url}: #{e}"
-      exit
+      return []
     end
     entries
   end
